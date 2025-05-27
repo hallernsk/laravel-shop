@@ -54,10 +54,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
         return view('products.show', compact('product'));
     }
@@ -104,6 +104,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+    // Проверка, используется ли товар в заказах
+        if ($product->orders()->exists()) {
+            return redirect()->route('products.index')
+                ->with('error', 'Невозможно удалить товар, так как он используется в заказах.');
+        }
+
+
         $product->delete();
         
         return redirect()->route('products.index')
