@@ -14,7 +14,7 @@ git clone https://github.com/hallernsk/laravel-shop.git
 
 cd laravel-shop
 
-настроить .env (DB)
+*настроить .env (DB)*
 
 php artisan migrate --seed
 
