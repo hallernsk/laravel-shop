@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -33,20 +34,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-        ]);
-        
+        $validated = $request->validated();
         Product::create($validated);
-        
+    
         return redirect()->route('products.index')
             ->with('success', 'Товар успешно добавлен.');
     }
@@ -78,20 +73,14 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Models\Product  $product
-     * @param  \Illuminate\Http\Request  $request 
+     * @param  App\Http\Requests\UpdateProductRequest  $request 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-        ]);
-        
+        $validated = $request->validated();
         $product->update($validated);
-        
+    
         return redirect()->route('products.index')
             ->with('success', 'Товар успешно обновлен.');
     }
@@ -109,7 +98,6 @@ class ProductController extends Controller
             return redirect()->route('products.index')
                 ->with('error', 'Невозможно удалить товар, так как он используется в заказах.');
         }
-
 
         $product->delete();
         

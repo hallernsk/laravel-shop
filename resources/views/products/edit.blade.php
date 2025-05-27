@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Редактирование товара</h1>
+    <h2>Редактирование товара</h2>
 
     <form action="{{ route('products.update', $product) }}" method="POST">
         @csrf

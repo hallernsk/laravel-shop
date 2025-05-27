@@ -1,5 +1,5 @@
-   <!DOCTYPE html>
-   <html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
    <head>
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,13 @@
        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
    </head>
    <body>
-       <nav>
-           <a href="{{ route('products.index') }}">Товары</a>
-           <a href="{{ route('orders.index') }}">Заказы</a>
-       </nav>
+        <h1>Панель управления товарами и заказами</h1>
+        <nav>
+            <a href="{{ route('products.index') }}">Товары</a>
+            <a href="{{ route('orders.index') }}">Заказы</a>
+        </nav>
 
-       <div>
+        <div>
             @if(session('success'))
                <div class="success">
                    {{ session('success') }}
@@ -26,6 +27,6 @@
             @endif
 
            @yield('content')
-       </div>
-   </body>
-   </html>
+        </div>
+    </body>
+</html>

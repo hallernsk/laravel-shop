@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h1>Информация о товаре</h1>
+        <h2>Информация о товаре</h2>
         <a href="{{ route('products.index') }}">Назад к списку</a>
     </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Создание заказа</h1>
+    <h2>Создание заказа</h2>
 
     <form action="{{ route('orders.store') }}" method="POST">
         @csrf
