@@ -5,7 +5,7 @@
         <h2>Список товаров</h2>
         <a href="{{ route('products.create') }}">Добавить товар</a>
     </div>
-
+    <br>    
     <table>
         <thead>
             <tr>

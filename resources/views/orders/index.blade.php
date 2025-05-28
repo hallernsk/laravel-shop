@@ -5,6 +5,7 @@
         <h2>Список заказов</h2>
         <a href="{{ route('orders.create') }}">Создать заказ</a>
     </div>
+    <br>
 
     <table>
         <thead>
