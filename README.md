@@ -16,6 +16,8 @@ cd laravel-shop
 
 *настроить .env (DB_CONNECTION)*
 
+composer install
+
 php artisan migrate --seed  *(создание 3 требуемых категорий и 10 произвольных товаров)*
 
 php artisan serve
