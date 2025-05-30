@@ -14,7 +14,9 @@ git clone https://github.com/hallernsk/laravel-shop.git
 
 cd laravel-shop
 
-*настроить .env (DB_CONNECTION)*
+cp  .env.example  .env  *(настроить DB_CONNECTION)*
+
+php artisan key:generate
 
 composer install
 
